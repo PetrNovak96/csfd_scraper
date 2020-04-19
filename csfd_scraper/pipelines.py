@@ -7,7 +7,7 @@ class FilmsScraperPipeline(object):
 
     def __init__(self):
         self.now = datetime.now()
-        self.file = open('./artifacts/film_records_%s.csv' % self.now.strftime("%Y-%m-%d_%H:%M:%S"), 'w+')
+        self.file = open('./artifacts/film_records_%s.csv' % self.now.strftime("%Y-%m-%d_%H:%M:%S"), 'w+b')
         self.exporter = CsvItemExporter(self.file)
 
     @classmethod
