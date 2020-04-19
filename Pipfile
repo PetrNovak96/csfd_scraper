@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 scrapy = "*"
 shub = "*"
+scrapy-contrib = "*"
 
 [requires]
 python_version = "3.8"

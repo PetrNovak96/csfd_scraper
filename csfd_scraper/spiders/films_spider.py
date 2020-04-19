@@ -38,7 +38,8 @@ class FilmsSpider(scrapy.Spider):
             name = response.css('div.info div.header h1::text').get().strip()
         country = response.css('div.info p.origin::text').get()
         country = country.split(',')[0] if country is not None else ''
-        year = response.css('div.info p.origin span::text').re(r'(\d{4})')[0]
+        year = response.css('div.info p.origin span::text').re(r'(\d{4})')
+        year = year[0] if len(year) > 0 else ''
         genre = response.css('div.info p.genre::text').get()
         rating = response.css('#rating h2.average::text').re(r'(\d+)')
         rating = rating[0] if len(rating) > 0 else ''
@@ -48,6 +49,7 @@ class FilmsSpider(scrapy.Spider):
         comments_count = comments_count[1].re(r'(\d+)')[0] \
             if len(comments_count) > 1 and len(comments_count[1].re(r'(\d+)')) > 0 \
             else 0
+        url = response.url
         yield FilmItem(
             name=name,
             country=country,
@@ -57,6 +59,7 @@ class FilmsSpider(scrapy.Spider):
             comments_count=comments_count,
             genre=genre,
             record_type=record_type,
+            url=url,
         )
         yield from response.follow_all(css='div.similar li a', callback=self.parse_record)
         yield from response.follow_all(css='div.tags a', callback=self.parse_search)
