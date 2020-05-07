@@ -1,0 +1,2 @@
+Scrapy~=2.0.1
+setuptools~=45.2.0

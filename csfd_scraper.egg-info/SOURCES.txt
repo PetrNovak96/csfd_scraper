@@ -1,0 +1,14 @@
+README.md
+setup.py
+csfd_scraper/__init__.py
+csfd_scraper/items.py
+csfd_scraper/middlewares.py
+csfd_scraper/pipelines.py
+csfd_scraper/settings.py
+csfd_scraper.egg-info/PKG-INFO
+csfd_scraper.egg-info/SOURCES.txt
+csfd_scraper.egg-info/dependency_links.txt
+csfd_scraper.egg-info/entry_points.txt
+csfd_scraper.egg-info/top_level.txt
+csfd_scraper/spiders/__init__.py
+csfd_scraper/spiders/films_spider.py
